@@ -37,7 +37,8 @@ unix:linux{
 # ***  LIBS **** #
 unix:linux{
     CONFIG += link_pkgconfig
-    PKGCONFIG += opencv tesseract
+    PKGCONFIG += opencv
+    LIBS += -ltesseract
 
     DESTDIR          = $${DEST_LIBS}
     LIBS            += -L$${DEST_LIBS}
