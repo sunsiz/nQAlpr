@@ -1,7 +1,9 @@
 include(../common.pri)
 TARGET = openalpr
 TEMPLATE = lib
-CONFIG += lib
+#CONFIG += staticlib
+CONFIG += shared_and_static build_all
+#CONFIG += lib
 CONFIG += create_prl
 CONFIG += link_prl
 RC_FILE = openalpr.rc
@@ -10,7 +12,7 @@ RC_FILE = openalpr.rc
 #QMAKE_CXXFLAGS += -DCMAKE_INSTALL_PREFIX=$${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}
 #QMAKE_CXXFLAGS += -DINSTALL_PREFIX=
 #QMAKE_CXXFLAGS += -DDEFAULT_CONFIG_FILE='"/config/openalpr.conf"'
-DEFINES += INSTALL_PREFIX=""
+DEFINES += INSTALL_PREFIX='""'
 QMAKE_CXXFLAGS += -DCOMPILE_GPU=1
 QMAKE_CXXFLAGS += -DSTATE_DETECTION_LIB=statedetection
 
@@ -40,7 +42,7 @@ unix:linux{
     DESTDIR          = $${DEST_LIBS}
     LIBS            += -L$${DEST_LIBS}
     LIBS            += -lstatedetection -lpthread -lsupport -lsimpleini
-    PRE_TARGETDEPS  += $${DEST_LIBS}/libsupport.a $${DEST_LIBS}/libsimpleini.a
+    PRE_TARGETDEPS  += $${DEST_LIBS}/libsupport.a $${DEST_LIBS}/libsimpleini.a  $${DEST_LIBS}/libstatedetection.a
 }
 
 EXTRA_FILES += \

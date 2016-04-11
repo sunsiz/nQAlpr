@@ -1,7 +1,8 @@
 include($$PWD/../common.pri)
 TARGET = statedetection
 TEMPLATE = lib
-CONFIG += lib
+CONFIG += shared_and_static build_all
+#CONFIG += staticlib
 
 OPENALPR_PATH = $${SOURCE_GITS}/openalpr/src/openalpr
 SUPPORT_PATH = $${OPENALPR_PATH}/support

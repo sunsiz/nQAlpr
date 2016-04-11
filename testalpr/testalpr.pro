@@ -5,9 +5,9 @@ QT -= gui
 
 TARGET = testalpr
 CONFIG += console
-CONFIG -= app_bundle
 
-TEMPLATE = app
+CONFIG += static
+#TEMPLATE = app
 
 
 INCLUDEPATH += $${INCLUDE_DIR}
@@ -22,6 +22,7 @@ unix:{
     CONFIG += link_pkgconfig
     PKGCONFIG += opencv
     LIBS +=  -lopenalpr -lstatedetection
+    PRE_TARGETDEPS  += $${DEST_LIBS}/libopenalpr.a $${DEST_LIBS}/libstatedetection.a
     DESTDIR = $$DEST_BINS
 
     linux{
