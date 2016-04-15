@@ -1,3 +1,4 @@
+DEFINES += INSTALL_PREFIX=\\\".\\\"
 SOURCES += \
     $${SOURCE_GITS}/openalpr/src/openalpr/alpr.cpp \
     $${SOURCE_GITS}/openalpr/src/openalpr/alpr_impl.cpp \
