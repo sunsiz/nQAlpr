@@ -1,3 +1,4 @@
+include($$PWD/common.pri)
 TEMPLATE = subdirs
 
 SUBDIRS += \

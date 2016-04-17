@@ -11,7 +11,6 @@ RC_FILE = video.rc
 INCLUDEPATH += $${SOURCE_GITS}/openalpr/src/openalpr
 DEPENDPATH  += $${SOURCE_GITS}/openalpr/src/openalpr
 
-include(video.pri)
 
 unix:{
     DESTDIR  = $${DEST_LIBS}
@@ -42,3 +41,4 @@ unix:{
 
 
 
+include(video.pri)

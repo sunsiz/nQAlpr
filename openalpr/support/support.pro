@@ -10,10 +10,11 @@ DEFINES += support
 INCLUDEPATH += $${SOURCE_GITS}/openalpr/src/openalpr/support
 DEPENDPATH  += $${SOURCE_GITS}/openalpr/src/openalpr/support
 
-include(support.pri)
 unix:{
     DESTDIR  = $${DEST_LIBS}
 }
+
+include(support.pri)
 
 
 
