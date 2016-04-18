@@ -15,7 +15,7 @@ LIBS += -L$${DEST_LIBS}
 unix:{
     CONFIG += link_pkgconfig
     PKGCONFIG += opencv
-    LIBS +=  -lopenalpr -lstatedetection
+    LIBS +=  -lnQAlpr -lstatedetection
     DESTDIR = $$DEST_BINS
 
     linux{

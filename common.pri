@@ -47,11 +47,11 @@ win32{
 }
 
 ARCH_DIR = $${OUT_PWD}/$${ARCH_TYPE}
-DEST_LIBS = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/openalpr/lib
-DEST_BINS = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/openalpr
+DEST_LIBS = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr/lib
+DEST_BINS = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr
 #*** INCLUDE IMPL ***#
-DEST_INCLUDE_DIR = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/openalpr/include
-INCLUDE_DIR = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/openalpr/include
+DEST_INCLUDE_DIR = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr/include
+INCLUDE_DIR = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr/include
 
 
 VERSION = 2

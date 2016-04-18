@@ -1,12 +1,12 @@
 include(../common.pri)
-TARGET = openalpr
+TARGET = nQAlpr
 TEMPLATE = lib
 #CONFIG += staticlib
 CONFIG += shared_and_static build_all
 #CONFIG += lib
 CONFIG += create_prl
 CONFIG += link_prl
-RC_FILE = openalpr.rc
+RC_FILE = nQAlpr.rc
 
 #DEFINES += openlpr_EXPORTS
 #QMAKE_CXXFLAGS += -DCMAKE_INSTALL_PREFIX=$${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}
