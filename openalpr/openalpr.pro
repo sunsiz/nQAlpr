@@ -47,7 +47,8 @@ unix:linux{
 }
 
 EXTRA_FILES += \
-    $${SOURCE_GITS}/openalpr/src/openalpr/alpr.h
+    $${SOURCE_GITS}/openalpr/src/openalpr/alpr.h \
+    $${SOURCE_GITS}/openalpr/src/openalpr/prewarp.h
 
 unix:{
     DESTDIR  = $${DEST_LIBS}
