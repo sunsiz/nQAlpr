@@ -8,7 +8,7 @@ CONFIG(release, debug|release){
     BUILD_TYPE = debug
 }
 
-BUILD_DIR = $$PWD/../../../builds
+BUILD_DIR = $$PWD/../../../builds/$${QT_VERSION}
 
 SOURCE_GITS = $$PWD/../../../src
 
