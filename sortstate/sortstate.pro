@@ -22,10 +22,18 @@ unix:{
         #Link share lib to ../lib rpath
         QMAKE_LFLAGS += -Wl,--rpath=\\\$\$ORIGIN
         QMAKE_LFLAGS += -Wl,--rpath=\\\$\$ORIGIN\/lib
+
     }
-    target.path = $${DEST_BINS}
-    INSTALLS = target
 }
+
+
+#INSTALLS
+unix:linux{
+    QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
+    target.path = $${NEWSAGES_DIR}/nQAlpr
+    INSTALLS += target
+}
+
 
 
 

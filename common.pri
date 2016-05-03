@@ -17,6 +17,8 @@ unix{
         ARCH_TYPE       = macx
     }
     linux{
+        NEWSAGES_DIR =  /opt/newsages
+        NEWSAGES_LIBS = /opt/newsages/lib
         !contains(QT_ARCH, x86_64){
             !contains(QT_ARCH, arm){
                 ARCH_TYPE       =  linux32
@@ -54,7 +56,7 @@ DEST_INCLUDE_DIR = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr/include
 INCLUDE_DIR = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr/include
 
 
-VERSION = 2
+#VERSION = 2
 OPENALPR_MAJOR_VERSION="2"
 OPENALPR_MINOR_VERSION="2"
 OPENALPR_PATCH_VERSION="4"

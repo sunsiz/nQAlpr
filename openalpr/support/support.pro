@@ -12,7 +12,15 @@ DEPENDPATH  += $${SOURCE_GITS}/openalpr/src/openalpr/support
 
 unix:{
     DESTDIR  = $${DEST_LIBS}
+
 }
+
+unix:linux{
+    QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
+    target.path = $${NEWSAGES_LIBS}
+    INSTALLS += target
+}
+
 
 include(support.pri)
 

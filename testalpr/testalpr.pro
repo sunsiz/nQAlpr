@@ -30,8 +30,6 @@ unix:{
         QMAKE_LFLAGS += -Wl,--rpath=\\\$\$ORIGIN
         QMAKE_LFLAGS += -Wl,--rpath=\\\$\$ORIGIN\/lib
     }
-    target.path = $${DEST_BINS}
-    INSTALLS = target
 }
 
 EXTRA_DIRS += \
@@ -42,4 +40,10 @@ unix:{
     QMAKE_POST_LINK += $(COPY_DIR) $$quote($${EXTRA_DIRS}) $$quote($${DESTDIR})  #inside of libs make /include/files
 }
 
+#INSTALLS
+unix:linux{
+    QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
+    target.path = $${NEWSAGES_DIR}/nQAlpr
+    INSTALLS += target
+}
 

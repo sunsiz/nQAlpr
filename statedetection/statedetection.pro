@@ -33,9 +33,15 @@ unix:{
         for(FILE,EXTRA_FILES){
             QMAKE_POST_LINK += $$QMAKE_COPY $$quote($$FILE) $$quote($${DEST_INCLUDE_DIR}) $$escape_expand(\\n\\t) # copy includes for impl
         }
-
-    }
+   }
     #QMAKE_POST_LINK += $(COPY_DIR) $$quote($${DEST_INCLUDE_DIR}) $$quote($${DESTDIR})  #inside of libs make /include/files
+}
+
+#INSTALLS
+unix:linux{
+    QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
+    target.path = $${NEWSAGES_LIBS}
+    INSTALLS = target
 }
 
 
