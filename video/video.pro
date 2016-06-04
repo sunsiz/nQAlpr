@@ -38,6 +38,11 @@ unix:{
     #QMAKE_POST_LINK += $(COPY_DIR) $$quote($${DEST_INCLUDE_DIR}) $$quote($${DESTDIR})  #inside of libs make /include/files
 }
 
+linux:{
+        QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
+        target.path = $${NEWSAGES_LIBS}
+        INSTALLS = target
+}
 
 
 

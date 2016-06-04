@@ -9,6 +9,11 @@ RC_FILE = simpleini.rc
 include(simpleini.pri)
 unix:{
     DESTDIR  = $${DEST_LIBS}
+    linux:{
+        QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
+        target.path = $${NEWSAGES_LIBS}
+        INSTALLS = target extra #extralibs
+    }
 }
 
 

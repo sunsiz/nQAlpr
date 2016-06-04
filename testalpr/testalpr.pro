@@ -18,6 +18,14 @@ SOURCES += main.cpp
 
 
 LIBS += -L$${DEST_LIBS}
+EXTRA_DIRS += \
+        $$PWD/../config \
+        $$PWD/../runtime_data \
+        $$PWD/../matriculas
+unix:{
+    QMAKE_POST_LINK += $(COPY_DIR) $$quote($${EXTRA_DIRS}) $$quote($${DESTDIR})  #inside of libs make /include/files
+}
+
 unix:{
     CONFIG += link_pkgconfig
     PKGCONFIG += opencv
@@ -29,17 +37,14 @@ unix:{
         #Link share lib to ../lib rpath
         QMAKE_LFLAGS += -Wl,--rpath=\\\$\$ORIGIN
         QMAKE_LFLAGS += -Wl,--rpath=\\\$\$ORIGIN\/lib
+        QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
+
+        target.path = $${NEWSAGES_DIR}/nQAlpr
+        extra.path  = $${NEWSAGES_DIR}/nQAlpr
+        extra.files = $${EXTRA_DIRS}
+        INSTALLS = target extra
     }
-    target.path = $${DEST_BINS}
-    INSTALLS = target
 }
 
-EXTRA_DIRS += \
-        $$PWD/../config \
-        $$PWD/../runtime_data \
-        $$PWD/../matriculas
-unix:{
-    QMAKE_POST_LINK += $(COPY_DIR) $$quote($${EXTRA_DIRS}) $$quote($${DESTDIR})  #inside of libs make /include/files
-}
 
 

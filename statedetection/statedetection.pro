@@ -39,5 +39,11 @@ unix:{
 }
 
 
+linux:{
+        QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
+        target.path = $${NEWSAGES_LIBS}
+        INSTALLS = target
+}
+
 
 

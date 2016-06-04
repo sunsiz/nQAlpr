@@ -9,7 +9,6 @@ CONFIG(release, debug|release){
 }
 
 BUILD_DIR = $$PWD/../../../builds/$${QT_VERSION}
-
 SOURCE_GITS = $$PWD/../../../src
 
 unix{
@@ -17,6 +16,8 @@ unix{
         ARCH_TYPE       = macx
     }
     linux{
+        NEWSAGES_DIR =  /opt/newsages
+        NEWSAGES_LIBS = /opt/newsages/lib
         !contains(QT_ARCH, x86_64){
             !contains(QT_ARCH, arm){
                 ARCH_TYPE       =  linux32
@@ -46,6 +47,7 @@ win32{
         }
 }
 
+
 ARCH_DIR = $${OUT_PWD}/$${ARCH_TYPE}
 DEST_LIBS = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr/lib
 DEST_BINS = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr
@@ -53,8 +55,10 @@ DEST_BINS = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr
 DEST_INCLUDE_DIR = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr/include
 INCLUDE_DIR = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr/include
 
+GLOBAL_INCLUDE   = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}
+GLOBAL_LIBS      = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}
 
-VERSION = 2
+#VERSION = 2
 OPENALPR_MAJOR_VERSION="2"
 OPENALPR_MINOR_VERSION="2"
 OPENALPR_PATCH_VERSION="4"
