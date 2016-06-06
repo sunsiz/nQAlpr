@@ -26,7 +26,6 @@ unix:{
         target.path = $${NEWSAGES_DIR}/nQAlpr
         INSTALLS = target
     }
-<<<<<<< HEAD
 }
 
 
@@ -35,7 +34,5 @@ unix:linux{
     QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
     target.path = $${NEWSAGES_DIR}/nQAlpr
     INSTALLS += target
-=======
->>>>>>> 75660561f637baf3d74f8f45dc75328ea1db0541
 }
 
