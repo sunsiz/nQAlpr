@@ -23,11 +23,6 @@ OPENALPR_PATH = $${SOURCE_GITS}/openalpr/src/openalpr
 INCLUDEPATH += $${OPENALPR_PATH} $${OPENALPR_PATH}/support $${OPENALPR_PATH}/simpleini
 DEPENDPATH  += $${OPENALPR_PATH} $${OPENALPR_PATH}/support $${OPENALPR_PATH}/simpleini
 
-
-
-
-
-
 # add open CV & tesseract
 # ***  LIBS **** #
 DESTDIR  = $${DEST_LIBS}
@@ -55,6 +50,14 @@ unix:{
     }
     #QMAKE_POST_LINK += $(COPY_DIR) $$quote($${DEST_INCLUDE_DIR}) $$quote($${DESTDIR})  #inside of libs make /include/files
 }
+
+EXTRA_DIRS += \
+    $$PWD/../config \
+    $$PWD/../runtime_data \
+    $$PWD/../matriculas
+    QMAKE_POST_LINK += $(COPY_DIR) $$quote($${EXTRA_DIRS}) $$quote($${DEST_BINS}) $$escape_expand(\\n\\t) #inside of libs make /include/files
+
+
 
 #INSTALLS
 unix:linux{

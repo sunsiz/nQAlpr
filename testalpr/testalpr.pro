@@ -32,25 +32,15 @@ unix:{
     LIBS +=  -lnQAlpr -lstatedetection
     PRE_TARGETDEPS  += $${DEST_LIBS}/libnQAlpr.a $${DEST_LIBS}/libstatedetection.a
     DESTDIR = $$DEST_BINS
-
-    linux{
-        #Link share lib to ../lib rpath
-        QMAKE_LFLAGS += -Wl,--rpath=\\\$\$ORIGIN
-        QMAKE_LFLAGS += -Wl,--rpath=\\\$\$ORIGIN\/lib
-        QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
-
-        target.path = $${NEWSAGES_DIR}/nQAlpr
-        extra.path  = $${NEWSAGES_DIR}/nQAlpr
-        extra.files = $${EXTRA_DIRS}
-        INSTALLS = target extra
-    }
 }
 
 
 #INSTALLS
-unix:linux{
+linux{
+    QMAKE_LFLAGS += -Wl,--rpath=\\\$\$ORIGIN
+    QMAKE_LFLAGS += -Wl,--rpath=\\\$\$ORIGIN\/lib
     QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
     target.path = $${NEWSAGES_DIR}/nQAlpr
-    INSTALLS += target
+    INSTALLS += target extra
 }
 
