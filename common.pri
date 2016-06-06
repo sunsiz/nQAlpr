@@ -9,7 +9,6 @@ CONFIG(release, debug|release){
 }
 
 BUILD_DIR = $$PWD/../../../builds/$${QT_VERSION}
-
 SOURCE_GITS = $$PWD/../../../src
 
 unix{
@@ -48,6 +47,7 @@ win32{
         }
 }
 
+
 ARCH_DIR = $${OUT_PWD}/$${ARCH_TYPE}
 DEST_LIBS = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr/lib
 DEST_BINS = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr
@@ -55,6 +55,8 @@ DEST_BINS = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr
 DEST_INCLUDE_DIR = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr/include
 INCLUDE_DIR = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}/nQAlpr/include
 
+GLOBAL_INCLUDE   = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}
+GLOBAL_LIBS      = $${BUILD_DIR}/$${ARCH_TYPE}/$${BUILD_TYPE}
 
 #VERSION = 2
 OPENALPR_MAJOR_VERSION="2"

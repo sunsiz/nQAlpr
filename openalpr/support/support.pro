@@ -12,7 +12,6 @@ DEPENDPATH  += $${SOURCE_GITS}/openalpr/src/openalpr/support
 
 unix:{
     DESTDIR  = $${DEST_LIBS}
-
 }
 
 unix:linux{

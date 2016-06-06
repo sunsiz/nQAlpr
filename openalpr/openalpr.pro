@@ -24,18 +24,9 @@ INCLUDEPATH += $${OPENALPR_PATH} $${OPENALPR_PATH}/support $${OPENALPR_PATH}/sim
 DEPENDPATH  += $${OPENALPR_PATH} $${OPENALPR_PATH}/support $${OPENALPR_PATH}/simpleini
 
 
-#INSTALLS
-unix:linux{
-    QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
-    target.path = $${NEWSAGES_LIBS}
-    INSTALLS += target
-}
 
 
 include(openalpr.pri)
-#include(support/support.pri)
-#include(simpleini/simpleini.pri)
-
 
 
 # add open CV & tesseract
@@ -69,9 +60,23 @@ unix:{
             QMAKE_POST_LINK += $$QMAKE_COPY $$quote($$FILE) $$quote($${DEST_INCLUDE_DIR}) $$escape_expand(\\n\\t) # copy includes for impl
         }
     }
+    linux:{
+        QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
+        target.path = $${NEWSAGES_LIBS}
+        extralibs.files = $${PRE_TARGETDEPS}
+        extralibs.path = $${NEWSAGES_LIBS}
+        INSTALLS += target extralibs
+    }
     #QMAKE_POST_LINK += $(COPY_DIR) $$quote($${DEST_INCLUDE_DIR}) $$quote($${DESTDIR})  #inside of libs make /include/files
 }
 
+#INSTALLS
+unix:linux{
+    QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
+    target.path = $${NEWSAGES_LIBS}
+    INSTALLS += target
+}
 
 
+include(openalpr.pri)
 
