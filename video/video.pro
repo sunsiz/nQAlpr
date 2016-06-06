@@ -1,7 +1,8 @@
 include(../common.pri)
 TARGET = video
 TEMPLATE = lib
-CONFIG += staticlib
+#CONFIG += staticlib
+CONFIG += shared_and_static build_all
 
 CONFIG += create_prl
 CONFIG += link_prl
@@ -38,7 +39,7 @@ unix:{
 }
 
 #INSTALLS
-unix:linux{
+linux:{
     QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
     target.path = $${NEWSAGES_LIBS}
     INSTALLS += target

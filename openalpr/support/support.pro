@@ -1,7 +1,8 @@
 include(../../common.pri)
 TARGET = support
 TEMPLATE = lib
-CONFIG += staticlib
+#CONFIG += staticlib
+CONFIG += shared_and_static build_all
 CONFIG += create_prl
 CONFIG += link_prl
 RC_FILE = support.rc
@@ -14,7 +15,7 @@ unix:{
     DESTDIR  = $${DEST_LIBS}
 }
 
-unix:linux{
+linux:{
     QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
     target.path = $${NEWSAGES_LIBS}
     INSTALLS += target

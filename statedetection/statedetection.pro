@@ -3,6 +3,9 @@ TARGET = statedetection
 TEMPLATE = lib
 CONFIG += shared_and_static build_all
 #CONFIG += staticlib
+CONFIG += create_prl
+CONFIG += link_prl
+RC_FILE = statedetection.rc
 
 OPENALPR_PATH = $${SOURCE_GITS}/openalpr/src/openalpr
 SUPPORT_PATH = $${OPENALPR_PATH}/support
@@ -10,7 +13,6 @@ SIMPLEINI_PATH = $${OPENALPR_PATH}/simpleini
 INCLUDEPATH += $$OPENALPR_PATH $$SUPPORT_PATH $$SIMPLEINI_PATH
 DEPENDPATH  += $$OPENALPR_PATH $$SUPPORT_PATH $$SIMPLEINI_PATH
 
-include($$PWD/statedetection.pri)
 
 # ***  LIBS **** #
 unix:linux{
@@ -44,5 +46,6 @@ linux:{
         INSTALLS = target
 }
 
+include($$PWD/statedetection.pri)
 
 

@@ -1,12 +1,12 @@
 include(../../common.pri)
 TARGET = simpleini
 TEMPLATE = lib
-CONFIG += staticlib
+#CONFIG += staticlib
+CONFIG += shared_and_static build_all
 CONFIG += create_prl
 CONFIG += link_prl
 RC_FILE = simpleini.rc
 
-include(simpleini.pri)
 unix:{
     DESTDIR  = $${DEST_LIBS}   
 }
@@ -17,5 +17,6 @@ unix:linux{
     INSTALLS = target
 }
 
+include(simpleini.pri)
 
 

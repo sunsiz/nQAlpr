@@ -16,8 +16,8 @@ RC_FILE = nQAlpr.rc
 #DEFINES += INSTALL_PREFIX='""'
 
 #GPU
-#QMAKE_CXXFLAGS += -DCOMPILE_GPU=1
-#QMAKE_CXXFLAGS += -DSTATE_DETECTION_LIB=statedetection
+QMAKE_CXXFLAGS += -DCOMPILE_GPU=1
+QMAKE_CXXFLAGS += -DSTATE_DETECTION_LIB=statedetection
 
 OPENALPR_PATH = $${SOURCE_GITS}/openalpr/src/openalpr
 INCLUDEPATH += $${OPENALPR_PATH} $${OPENALPR_PATH}/support $${OPENALPR_PATH}/simpleini
@@ -26,23 +26,16 @@ DEPENDPATH  += $${OPENALPR_PATH} $${OPENALPR_PATH}/support $${OPENALPR_PATH}/sim
 
 
 
-include(openalpr.pri)
 
 
 # add open CV & tesseract
-unix:linux{
-    LIBS += -L$${DEST_LIBS}
-    CONFIG += link_pkgconfig
-
-}
-
 # ***  LIBS **** #
+DESTDIR  = $${DEST_LIBS}
 unix:linux{
     CONFIG += link_pkgconfig
     PKGCONFIG += opencv
     LIBS += -ltesseract
 
-    DESTDIR          = $${DEST_LIBS}
     LIBS            += -L$${DEST_LIBS}
     LIBS            += -lstatedetection -lpthread -lsupport -lsimpleini
     PRE_TARGETDEPS  += $${DEST_LIBS}/libsupport.a $${DEST_LIBS}/libsimpleini.a  $${DEST_LIBS}/libstatedetection.a
@@ -60,13 +53,6 @@ unix:{
             QMAKE_POST_LINK += $$QMAKE_COPY $$quote($$FILE) $$quote($${DEST_INCLUDE_DIR}) $$escape_expand(\\n\\t) # copy includes for impl
         }
     }
-    linux:{
-        QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
-        target.path = $${NEWSAGES_LIBS}
-        extralibs.files = $${PRE_TARGETDEPS}
-        extralibs.path = $${NEWSAGES_LIBS}
-        INSTALLS += target extralibs
-    }
     #QMAKE_POST_LINK += $(COPY_DIR) $$quote($${DEST_INCLUDE_DIR}) $$quote($${DESTDIR})  #inside of libs make /include/files
 }
 
@@ -79,4 +65,3 @@ unix:linux{
 
 
 include(openalpr.pri)
-
