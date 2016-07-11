@@ -5,7 +5,6 @@ SOURCES += \
     $${SOURCE_GITS}/openalpr/src/openalpr/config.cpp \
     $${SOURCE_GITS}/openalpr/src/openalpr/config_helper.cpp \
     $${SOURCE_GITS}/openalpr/src/openalpr/utility.cpp \
-    $${SOURCE_GITS}/openalpr/src/openalpr/ocr.cpp \
     $${SOURCE_GITS}/openalpr/src/openalpr/colorfilter.cpp \
     $${SOURCE_GITS}/openalpr/src/openalpr/prewarp.cpp \
     $${SOURCE_GITS}/openalpr/src/openalpr/transformation.cpp \
@@ -27,12 +26,15 @@ SOURCES += \
     $${SOURCE_GITS}/openalpr/src/openalpr/postprocess/postprocess.cpp \
     $${SOURCE_GITS}/openalpr/src/openalpr/postprocess/regexrule.cpp \
     \
-    $${SOURCE_GITS}/openalpr/src/openalpr/segmentation/charactersegmenter.cpp \
-    $${SOURCE_GITS}/openalpr/src/openalpr/segmentation/histogram.cpp \
-    $${SOURCE_GITS}/openalpr/src/openalpr/segmentation/histogramvertical.cpp \
-    $${SOURCE_GITS}/openalpr/src/openalpr/segmentation/histogramhorizontal.cpp \
-    $${SOURCE_GITS}/openalpr/src/openalpr/segmentation/segment.cpp \
-    $${SOURCE_GITS}/openalpr/src/openalpr/segmentation/segmentationgroup.cpp \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/ocr.cpp \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/ocrfactory.cpp \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/tesseract_ocr.cpp \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/segmentation/charactersegmenter.cpp \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/segmentation/histogram.cpp \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/segmentation/histogramvertical.cpp \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/segmentation/histogramhorizontal.cpp \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/segmentation/segment.cpp \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/segmentation/segmentationgroup.cpp \
     \
     $${SOURCE_GITS}/openalpr/src/openalpr/edges/edgefinder.cpp \
     $${SOURCE_GITS}/openalpr/src/openalpr/edges/platecorners.cpp \
@@ -95,7 +97,6 @@ HEADERS += \
     $${SOURCE_GITS}/openalpr/src/openalpr/config_helper.h \
     $${SOURCE_GITS}/openalpr/src/openalpr/licenseplatecandidate.h \
     $${SOURCE_GITS}/openalpr/src/openalpr/motiondetector.h \
-    $${SOURCE_GITS}/openalpr/src/openalpr/ocr.h \
     $${SOURCE_GITS}/openalpr/src/openalpr/pipeline_data.h \
     $${SOURCE_GITS}/openalpr/src/openalpr/prewarp.h \
     $${SOURCE_GITS}/openalpr/src/openalpr/result_aggregator.h \
@@ -121,12 +122,15 @@ HEADERS += \
     $${SOURCE_GITS}/openalpr/src/openalpr/postprocess/postprocess.h \
     $${SOURCE_GITS}/openalpr/src/openalpr/postprocess/regexrule.h \
     \
-    $${SOURCE_GITS}/openalpr/src/openalpr/segmentation/charactersegmenter.h \
-    $${SOURCE_GITS}/openalpr/src/openalpr/segmentation/histogram.h \
-    $${SOURCE_GITS}/openalpr/src/openalpr/segmentation/histogramhorizontal.h \
-    $${SOURCE_GITS}/openalpr/src/openalpr/segmentation/histogramvertical.h \
-    $${SOURCE_GITS}/openalpr/src/openalpr/segmentation/segment.h \
-    $${SOURCE_GITS}/openalpr/src/openalpr/segmentation/segmentationgroup.h \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/ocr.h \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/ocrfactory.h \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/tesseract_ocr.h \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/segmentation/charactersegmenter.h \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/segmentation/histogram.h \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/segmentation/histogramvertical.h \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/segmentation/histogramhorizontal.h \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/segmentation/segment.h \
+    $${SOURCE_GITS}/openalpr/src/openalpr/ocr/segmentation/segmentationgroup.h \
     \
     $${SOURCE_GITS}/openalpr/src/openalpr/simpleini/ConvertUTF.h \
     $${SOURCE_GITS}/openalpr/src/openalpr/simpleini/simpleini.h \
