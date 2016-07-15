@@ -54,7 +54,7 @@ unix:{
 EXTRA_DIRS += \
     $$PWD/../config \
     $$PWD/../runtime_data \
-    $$PWD/../matriculas
+    ##$$PWD/../matriculas
     QMAKE_POST_LINK += $(COPY_DIR) $$quote($${EXTRA_DIRS}) $$quote($${DEST_BINS}) $$escape_expand(\\n\\t) #inside of libs make /include/files
 
 
