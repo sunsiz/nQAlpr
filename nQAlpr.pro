@@ -10,8 +10,8 @@ SUBDIRS += \
 
 CONFIG   += ordered
 
-SUBDIRS += \
-        sortstate \
-        calibrate \
-        testalpr
+#SUBDIRS += \
+#        sortstate \
+#        calibrate \
+#        testalpr
 
