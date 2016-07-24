@@ -28,7 +28,7 @@ EXTRA_FILES += \
     $${SOURCE_GITS}/openalpr/src/video/videobuffer.h \
     $${SOURCE_GITS}/openalpr/src/video/logging_videobuffer.h
 
-unix:{
+unix{
     linux{
         QMAKE_POST_LINK += mkdir -p $$quote($${DEST_INCLUDE_DIR}) $$escape_expand(\\n\\t) # qmake need make mkdir -p on subdirs more than root
         for(FILE,EXTRA_FILES){
@@ -39,7 +39,7 @@ unix:{
 }
 
 #INSTALLS
-linux:{
+linux{
     QMAKE_LFLAGS += -Wl,--rpath=/opt/newsages/lib
     target.path = $${NEWSAGES_LIBS}
     INSTALLS += target

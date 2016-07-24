@@ -32,6 +32,7 @@ unix:linux{
     LIBS += -ltesseract
 
     LIBS            += -L$${DEST_LIBS}
+
     LIBS            += -lstatedetection -lpthread -lsupport -lsimpleini
     PRE_TARGETDEPS  += $${DEST_LIBS}/libsupport.a $${DEST_LIBS}/libsimpleini.a  $${DEST_LIBS}/libstatedetection.a
 }
@@ -40,7 +41,7 @@ EXTRA_FILES += \
     $${SOURCE_GITS}/openalpr/src/openalpr/alpr.h \
     $${SOURCE_GITS}/openalpr/src/openalpr/prewarp.h
 
-unix:{
+unix{
     DESTDIR  = $${DEST_LIBS}
     linux{
         QMAKE_POST_LINK += mkdir -p $$quote($${DEST_INCLUDE_DIR}) $$escape_expand(\\n\\t) # qmake need make mkdir -p on subdirs more than root
