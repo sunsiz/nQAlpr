@@ -1,15 +1,18 @@
 CONFIG += c++11
 #***  VARIABLES FOR MULTI_OS_ARCH ***#
 CONFIG(release, debug|release){
-    message(Release)
+    #message(Release)
     BUILD_TYPE = release
 }else{
-    message(Debug)
+    #message(Debug)
     BUILD_TYPE = debug
 }
 
-BUILD_DIR = $$PWD/../../../builds/$${QT_VERSION}
-SOURCE_GITS = $$PWD/../../../src
+BUILD_DIR =   $$PWD/../../build/$${QT_VERSION}
+SOURCE_GITS = $$PWD/../../deps
+
+#message("Proyecto:" $$TARGET)
+message("Proyecto: "$$TARGET "/ Build Dir:" $$BUILD_DIR)
 
 unix{
     macx{
@@ -21,18 +24,18 @@ unix{
         !contains(QT_ARCH, x86_64){
             !contains(QT_ARCH, arm){
                 ARCH_TYPE       =  linux32
-                message("Compiling for " $$QT_ARCH " 32bit system")
+                #message("Compiling for " $$QT_ARCH " 32bit system")
             }else{
                 ARCH_TYPE       =  arm
-                message("Compiling for " $$QT_ARCH " 32bit system")
+                #message("Compiling for " $$QT_ARCH " 32bit system")
             }
         }else{
             !contains(QT_ARCH, arm){
                 ARCH_TYPE       =  linux64
-                message("Compiling for " $$QT_ARCH " 64bit system")
+                #message("Compiling for " $$QT_ARCH " 64bit system")
             }else{
                 ARCH_TYPE       =  arm64
-                message("Compiling for " $$QT_ARCH " 64bit system")
+                #message("Compiling for " $$QT_ARCH " 64bit system")
             }
         }
     }
@@ -40,10 +43,10 @@ unix{
 win32{
         !contains(QT_ARCH, x86_64){
             ARCH_TYPE       =  win32
-            message("Compiling for 32bit system")
+            #message("Compiling for 32bit system")
         }else{
             ARCH_TYPE       =  win64
-            message("Compiling for 64bit system")
+            #message("Compiling for 64bit system")
         }
 }
 
